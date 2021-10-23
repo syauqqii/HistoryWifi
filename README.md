@@ -23,3 +23,9 @@ cd cek-riwayat-koneksi-wifi
 ```
 python wifi.py
 ```
+
+# note
+Mungkin di beberapa device membutuhkan installasi lib subprocess
+```
+pip install subprocess
+```
