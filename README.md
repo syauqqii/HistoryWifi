@@ -15,9 +15,9 @@ apt install python git -y
 ```
 git clone https://github.com/syauqqii/cek-riwayat-koneksi-wifi.git
 ```
-4. Masuk ke folder wifi
+4. Masuk ke folder cek-riwayat-koneksi-wifi
 ```
-cd wifi
+cd cek-riwayat-koneksi-wifi
 ```
 5. Run program avg.py
 ```
