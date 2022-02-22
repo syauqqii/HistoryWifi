@@ -19,9 +19,9 @@ git clone https://github.com/syauqqii/cek-riwayat-koneksi-wifi.git
 ```
 cd cek-riwayat-koneksi-wifi
 ```
-5. Run program avg.py
+5. Run program wifi
 ```
-python wifi.py
+python cek.py
 ```
 
 # note
