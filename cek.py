@@ -39,7 +39,7 @@ def main():
 		file_wifi.write(str(format_text))
 	file_wifi.close()
 	print(f"$ {len(wifi_list)} data berhasil di simpan ke dalam file : ", end='')
-	load(nama_file)
+	# load(nama_file)
 	print("$ Tekan apa saja untuk keluar.\n")
 	system("pause > 1")
 
