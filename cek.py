@@ -17,8 +17,8 @@ def main():
 				continue
 			else:
 				wifi_profile["ssid"]	= name
-				profile_info_pass		= subprocess.run(["netsh","wlan","show","profiles", name, "key=clear"], capture_output=True).stdout.decode()
-				password				= re.search("Key Content            : (.*)\r", profile_info_pass)
+				profile_info_pass	= subprocess.run(["netsh","wlan","show","profiles", name, "key=clear"], capture_output=True).stdout.decode()
+				password		= re.search("Key Content            : (.*)\r", profile_info_pass)
 				if password == None:
 					wifi_profile["password"] = None
 				else:
@@ -39,7 +39,6 @@ def main():
 		file_wifi.write(str(format_text))
 	file_wifi.close()
 	print(f"$ {len(wifi_list)} data berhasil di simpan ke dalam file : ", end='')
-	# load(nama_file)
 	print("$ Tekan apa saja untuk keluar.\n")
 	system("pause > 1")
 
