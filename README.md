@@ -13,28 +13,28 @@ Alur program :
 
 # Instalasi
 1. Lakukan update dan upgrade
-```
+```bash
 apt update && apt upgrade -y
 ```
 2. Install python dan git
-```
+```bash
 apt install python git -y
 ```
 3. Download repositories dengan command :
-```
+```bash
 git clone https://github.com/syauqqii/HistoryWifi
 ```
 4. Masuk ke folder HistoryWifi
-```
+```bash
 cd HistoryWifi
 ```
 5. Run program
-```
+```python3
 python cek.py
 ```
 
 # note
 Mungkin di beberapa device membutuhkan installasi library subprocess
-```
+```python3
 pip install subprocess
 ```
