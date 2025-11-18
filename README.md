@@ -1,40 +1,91 @@
-# Informasi
-Program berbasis CLI untuk cek riwayat koneksi wifi.
-Hanya untuk WINDOWS. Tidak untuk LINUX.
+# WiFi Password Extractor
 
-Alur program :
-  - Request cmd -> netsh wlan show profile
-  - Kemudian record hasil (disimpan ke variabel)
-  - Setelah itu lakukan looping dengan request cmd kembali
-  - netsh wlan show profile name="{hasil record poin 2}" key=clear
-  - Jika wifi tersebut login via web / key security : absent
-  - Maka akan di skip, Program akan mencari wifi yang ada passwordnya
-  - Setelah menemukan akan di simpan ke dalam file.
+Program CLI untuk mengekstrak riwayat koneksi WiFi dan password yang tersimpan di sistem.
 
-# Instalasi
-1. Lakukan update dan upgrade
+**Platform Support:** Windows | Linux | macOS
+
+## Quick Start
+
 ```bash
-apt update && apt upgrade -y
-```
-2. Install python dan git
-```bash
-apt install python git -y
-```
-3. Download repositories dengan command :
-```bash
+# Clone repository
 git clone https://github.com/syauqqii/HistoryWifi
-```
-4. Masuk ke folder HistoryWifi
-```bash
 cd HistoryWifi
-```
-5. Run program
-```python3
-python cek.py
+
+# Run (Linux/macOS - requires sudo)
+sudo python3 wifi_extractor.py
+
+# Run (Windows - run as Administrator)
+python wifi_extractor.py
 ```
 
-# note
-Mungkin di beberapa device membutuhkan installasi library subprocess
-```python3
-pip install subprocess
+## Requirements
+
+- Python 3.6+
+- Linux: NetworkManager (pre-installed di most distros)
+- Akses root/Administrator
+
+## How It Works
+
+| Platform | Method |
+|----------|--------|
+| Windows | `netsh wlan` commands |
+| Linux | NetworkManager CLI (`nmcli`) or config files (`/etc/NetworkManager/system-connections/`) |
+| macOS | Keychain access (`security` command) |
+
+Program otomatis mendeteksi OS dan menggunakan metode yang sesuai.
+
+## Output
+
+Hasil disimpan ke file `wifi.txt`:
+
 ```
+[01] WiFi Name : HomeNetwork
+[01] Password  : mypassword123
+
+[02] WiFi Name : OfficeWiFi
+[02] Password  : office2024
+```
+
+## Troubleshooting
+
+**Linux: No results found**
+```bash
+# Pastikan running dengan sudo
+sudo python3 wifi_extractor.py
+
+# Check NetworkManager status
+systemctl status NetworkManager
+```
+
+**macOS: Permission denied**
+```bash
+# Run dengan sudo
+sudo python3 wifi_extractor.py
+
+# Atau grant Terminal access:
+# System Preferences > Security & Privacy > Privacy > Full Disk Access > Add Terminal
+```
+
+**Windows: No profiles found**
+- Run Command Prompt as Administrator
+- Check WiFi profiles: `netsh wlan show profiles`
+
+## Features
+
+- Multi-platform support (Windows, Linux, macOS)
+- Auto OS detection
+- Multiple extraction methods dengan fallback
+- Proper error handling
+- UTF-8 support
+
+## Security Warning
+
+Program ini hanya untuk recovery password WiFi pribadi. File output berisi password dalam plain text - jaga keamanannya. Jangan gunakan untuk mengakses jaringan tanpa izin.
+
+## License
+
+MIT License
+
+## Author
+
+syauqqii
