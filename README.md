@@ -36,14 +36,18 @@ Program otomatis mendeteksi OS dan menggunakan metode yang sesuai.
 
 ## Output
 
-Hasil disimpan ke file `wifi.txt`:
+Hasil langsung ditampilkan di terminal dalam format tabel:
 
 ```
-[01] WiFi Name : HomeNetwork
-[01] Password  : mypassword123
-
-[02] WiFi Name : OfficeWiFi
-[02] Password  : office2024
++------------------------------------------------------------------------------+
+|                        Found 3 WiFi Credential(s)                            |
++------------------------------------------------------------------------------+
+|   # | SSID                 | Password             |
+|-----+----------------------+----------------------|
+|   1 | HomeNetwork          | mypassword123        |
+|   2 | OfficeWiFi           | office2024           |
+|   3 | CafeHotspot          | N/A                  |
++------------------------------------------------------------------------------+
 ```
 
 ## Troubleshooting
